@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux'; // this should come in handy
 
 const initialState = {}
 
@@ -8,4 +8,4 @@ const rootReducer = function(state = initialState, action) {
   }
 };
 
-export default rootReducer
+export default rootReducer;

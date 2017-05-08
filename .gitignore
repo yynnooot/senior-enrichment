@@ -1,9 +1,7 @@
-# Ignore all node_modules
-node_modules/*
-
-# Compiled JS
+node_modules
 public/bundle.js
 public/bundle.js.map
-
-# NPM errors
+secrets.js
+yarn.lock
+.DS_Store
 npm-debug.log
