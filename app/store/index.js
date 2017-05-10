@@ -9,4 +9,3 @@ export default createStore(
     thunkMiddleware,
     createLogger({ collapsed: true })
   )
-);
