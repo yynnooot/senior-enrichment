@@ -6,3 +6,40 @@
 	// This is an acceptable pattern but it does have limitations in that if you change the name of the model you will have to change every time it is required everywhere
 
 // This is also probably a good place for you to set up your associations
+
+var Sequelize = require('sequelize');
+var db = require('../index.js')
+
+const Student = db.define('student', {
+	firstname: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	lastname: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	email: {
+		type: Sequelize.STRING,
+		validate: {
+			isEmail: true
+		}
+	}
+});
+
+const Campus = db.define('campus', {
+	name: {
+		type: Sequelize.STRING
+	},
+	image: {
+		type: Sequelize.STRING
+	}
+});
+
+Campus.hasMany(Student, { as: "Students" });
+
+module.exports = {
+	Student: Student,
+	Campus: Campus,
+	db
+}
