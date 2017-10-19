@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import EditCampus from './EditCampus';
 
 export default class Campus extends Component {
-    constructor(props){ //************** DO I NEED PROPS FROM CAMPUSES? */
+    constructor(props){ 
         super(props);
         this.state={
             campus: {},
             students: []
         }
+        this.renderNewCampus = this.renderNewCampus.bind(this);
     }
 
     componentDidMount(){
@@ -33,7 +34,7 @@ export default class Campus extends Component {
         
         const campus = this.state.campus;
         const students = this.state.students;
-        console.log('*****',students)
+       
         return(
             <div>
                 <h1>this is ONE CAMPUS</h1>
@@ -41,7 +42,7 @@ export default class Campus extends Component {
                 <div>
                     <button onClick={this.onEditClick.bind(this)}>edit</button>
                     {this.state.isEdit? 
-                        <EditCampus id={student.id} setCampus={this.renderNewCampus}/> : false
+                        <EditCampus id={campus.id} setCampus={this.renderNewCampus}/> : false
                     }           
                 </div>
                 <h3>Students:</h3>

@@ -13,10 +13,6 @@ export default class EditCampus extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount(){
-       
-    }
-
     handleInputChange(event) {
         const value = event.target.value; 
         const name = event.target.name;
@@ -30,7 +26,8 @@ export default class EditCampus extends Component{
         event.preventDefault();
 
         axios.put(`/api/campuses/${this.props.id}`, {
-            
+            name: this.state.campusName,
+            image: this.state.campusUrl
         })
         .then(res=>res.data)
         .then(campus => {
