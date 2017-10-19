@@ -1,30 +1,12 @@
-'use strict'
-import React from 'react'
-import {render} from 'react-dom'
-import { Provider } from 'react-redux'
-import Main from './components/Main.js'
-import Nav from './components/Nav.js'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import store from './store'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-render (
-  <Provider store={store}>
-    <Router>
 
-      <div>
-        <div>
-          <Nav />
-        </div>
+import Main from './components/Main'
 
-        <div>
-          <Switch>
-            <Route exact path="/" component= { Main } />
-          </Switch>      
-        </div>
-      </div>
 
-    </Router> 
-  </Provider>,
+ReactDOM.render(
+  <Main />,
   document.getElementById('main')
-)
+);

@@ -23,7 +23,13 @@ const Student = db.define('student', {
 		type: Sequelize.STRING,
 		validate: {
 			isEmail: true
+			}
 		}
+	},{
+	getterMethods: {
+		fullname: function(){
+			return this.firstname + " " + this.lastname;
+		} 
 	}
 });
 
@@ -36,7 +42,8 @@ const Campus = db.define('campus', {
 	}
 });
 
-Campus.hasMany(Student, { as: "Students" });
+Campus.hasMany(Student);
+Student.belongsTo(Campus);
 
 module.exports = {
 	Student: Student,
