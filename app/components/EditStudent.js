@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default class AddStudent extends Component{
-    constructor(){
-        super();
+export default class EditStudent extends Component{
+    constructor(props){
+        super(props);
         this.state = {
-            firstName: "",
-            lastName: "",
+            firstname: "",
+            lastname: "",
             email: "",
             campusid: "",
             campuses: [],
-            createdStudent: {}
+            createdStudent: ""
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,26 +38,29 @@ export default class AddStudent extends Component{
 
         //WHAT IS HAPPENING BEHIND THE SCENES? WHAT DO I NEED TO DO AFTER POSTING OBJECT? 
         //WHAT'S THE RELATIONSHIP BETWEEN THIS AND THE ROUTER.POST - AM I SENDING Req.body??
-        axios.post('/api/students', {
-            firstname:this.state.firstName,
-            lastname:this.state.lastName,
+        axios.put(`/api/students/${this.props.id}`, {
+            firstname:this.state.firstname,
+            lastname:this.state.lastname,
             email:this.state.email,
             campusId: this.state.campusid
         })
         .then(res=>res.data)
-        .then(newStudentObj => {
-            const studentid = newStudentObj.id
-            this.props.history.push(`/students/${studentid}`)
+        .then(student => {
+
+            return this.props.setStudent(student)
         })
-    }  
+    }
+        
     render() {
+        console.log("PROPS", this.props)
         return (
             <form onSubmit={this.handleSubmit} onChange={this.handleInputChange}>
+                <label> EDIT THIS STUDENT BELOW:<br/>
                 <label>
                     First Name:
                     </label>
                     <input
-                        name="firstName"
+                        name="firstname"
                         type="text"
                         value={this.state.firstName}
                         onChange={this.handleInputChange} />
@@ -66,7 +69,7 @@ export default class AddStudent extends Component{
                     Last Name:
                 </label>
                     <input
-                        name="lastName"
+                        name="lastname"
                         type="text"
                         value={this.state.lastName}
                         onChange={this.handleInputChange} />
@@ -96,6 +99,7 @@ export default class AddStudent extends Component{
                   </select>
                <br/>
                 <input type="submit" name="submit"/>
+                </label>
             </form>
 
         )

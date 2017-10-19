@@ -2,6 +2,8 @@ const router = require('express').Router();
 module.exports = router;
 const { Student, Campus } = require('../db/models');
 
+// '/api/students'
+
 router.get('/', function (req, res, next) {
     Student.findAll({})
       .then(student => res.json(student))

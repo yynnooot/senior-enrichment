@@ -2,13 +2,14 @@ const router = require('express').Router();
 module.exports = router;
 const { Campus, Student } = require('../db/models');
 
+// '/api/campuses/'
+
 router.get('/', function (req, res, next) {
     Campus.findAll({})
       .then(student => res.json(student))
       .catch(next);
   });
  router.get('/:id', (req,res,next) => {
-     console.log("HITTTT")
      Campus.findById(req.params.id,
         {include: Student})
         .then(campus =>res.json(campus))

@@ -31,7 +31,7 @@ export default class Students extends Component{
                                     <Link to={`/students/${student.id}`} key={student.id}>
                                         <div>{student.fullname}</div>
                                     </Link>
-                                    <button id="delete-button">x</button>
+                                    
                                 </div>
                                 
                             )
