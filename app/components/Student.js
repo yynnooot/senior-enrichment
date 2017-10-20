@@ -48,8 +48,7 @@ export default class Student extends Component{
     render(){
         const student = this.state.student;
         const campus = this.state.campus
-        console.log('student', student)
-        console.log('campus', campus)
+        
         return (
             <div>
                 <div>
@@ -59,14 +58,15 @@ export default class Student extends Component{
                     <Link to={`/campuses/${campus.id}`}>
                         <h3>Campus: {campus.name}</h3>
                     </Link>
-                    
-                    <button id="delete-student" onClick={this.onDelete.bind(this)}>delete</button>
                 </div>
-                <div>
-                    <button onClick={this.onEditClick.bind(this)}>edit</button>
-                    {this.state.isEdit? 
-                        <EditStudent id={student.id} setStudent={this.renderNewStud}/> : false
-                    }           
+                <div id="student-btns">
+                    <button id="delete-student" onClick={this.onDelete.bind(this)}>delete</button>
+                    <button id="edit-student" onClick={this.onEditClick.bind(this)}>edit</button>
+                    <div id="student-list">
+                        {this.state.isEdit? 
+                            <EditStudent id={student.id} setStudent={this.renderNewStud}/> : false
+                        }
+                    </div>           
                 </div>
             </div>
         )

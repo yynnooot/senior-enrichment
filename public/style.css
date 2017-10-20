@@ -1,0 +1,108 @@
+body {
+    display: block;
+    margin: 0;
+    font-family: Avenir;
+}
+#nav-bar {
+    background-image: linear-gradient(to right, #8934A3 25%, #879FC7 110%);
+    height: 75px;
+}
+.logo {
+    background-image: url("./logo.png");
+    background-repeat: no-repeat;
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin: 7px 0 0 200px;
+}
+#nav-links{
+    float: right;
+    margin: 20px 200px 0 0;
+}
+#nav-links h3{
+    padding: 0 30px;
+    display: inline;
+    text-decoration: none;
+}
+
+#main-container {
+    background-color: light-grey;
+    margin-top: 90px;
+}
+
+#main-container h3{
+    text-align: center;
+}
+#main-container h1{
+    text-align: center;
+}
+
+#campus-container{
+
+}
+.campus-div{
+    width: 50%;
+    height: 320px;
+    display: inline-block;
+    text-align: center;
+    height: 320px;
+}
+.campus-div:hover {
+    background-color: blue;
+}
+.campus-name-div{
+    font-size: 40px;
+    position: relative;
+    top: 125px;
+    color: white;
+} 
+#campus-btn{
+    font-size: 120%;
+    padding: 20px 40px;
+}
+#campus-btn-div{
+    text-align: center;
+}
+#add-campus-form{
+    text-align: center;
+}
+
+#addcampus-div{
+    width:457px;
+    margin: 0 auto;
+    padding: 45px;
+    background-color: lightgrey;
+}
+#addcampusbtn{
+    font-size: 120%;
+    padding: 9px 40px;
+    background-color: lightblue;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+#student-btns{
+    text-align: center;
+}
+#student-edit-form{
+     margin-top: 25px;
+}
+#student-btns{
+    text-align: center;
+}
+#student-list{
+    text-align: center;
+}
+.student-container{
+    text-align: center;
+}
+#addstudentbtn{
+    margin-bottom: 11px;
+}
+#campus-btn-form{
+    text-align: center;
+}
+.campus-div:hover{
+    opacity: 0.5;
+    color: black;
+}
+

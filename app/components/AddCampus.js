@@ -13,6 +13,7 @@ export default class AddCampus extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         
     }
+    
     handleInputChange(event) {
        
         const name = event.target.name;
@@ -22,6 +23,7 @@ export default class AddCampus extends Component{
           [name]: value
         });
       }
+
     handleSubmit(event){
         event.preventDefault();
         
@@ -36,35 +38,36 @@ export default class AddCampus extends Component{
             this.props.history.push(`/campuses/${campusId}`);
         })
     }
-    // .then(res=>res.data)
-    // .then(newStudentObj => {
-    //     const studentid = newStudentObj.id
-    //     this.props.history.push(`/students/${studentid}`)
-    // })
+
     
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Campus Name:
-                </label>
-                <input
-                    name="campusName"
-                    type="text"
-                    value={this.state.campusName}
-                    onChange={this.handleInputChange} />
-                
-                <label>
-                    Campus Image Url:
-                </label>
+            <div id="addcampus-div">
+                <div>
+                    <h1>Input New Campus Info Below:</h1>
+                </div>
+                <form id="add-campus-form" onSubmit={this.handleSubmit}>
+                    <label>
+                        Campus Name:
+                    </label>
                     <input
-                        name="campusUrl"
+                        name="campusName"
                         type="text"
-                        value={this.state.campusUrl}
+                        value={this.state.campusName}
                         onChange={this.handleInputChange} />
-                
-                <input type="submit" name="submit"/>
-            </form>
+                    
+                    <label><br/>
+                        Campus Image Url:
+                    </label>
+                        <input
+                            name="campusUrl"
+                            type="text"
+                            value={this.state.campusUrl}
+                            onChange={this.handleInputChange} />
+                            <br/>
+                    <input id="addcampusbtn" type="submit" name="submit"/>
+                </form>
+            </div>
         )
       }
     }

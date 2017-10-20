@@ -37,26 +37,26 @@ export default class EditCampus extends Component{
         
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
+            <form id="student-edit-form" onSubmit={this.handleSubmit}>
+                <label className="edit-form-input">
                     Campus Name:
-                </label>
-                <input
-                    name="campusName"
-                    type="text"
-                    value={this.state.campusName}
-                    onChange={this.handleInputChange} />
                 
-                <label>
-                    Campus Image Url:
+                    <input
+                        name="campusName"
+                        type="text"
+                        value={this.state.campusName}
+                        onChange={this.handleInputChange} />
                 </label>
+                <label className="edit-form-input">
+                    Campus Image Url:
+                
                     <input
                         name="campusUrl"
                         type="text"
                         value={this.state.campusUrl}
                         onChange={this.handleInputChange} />
-                
-                <input type="submit" name="submit"/>
+                </label>
+                <input className="edit-form-input" type="submit" name="submit"/>
             </form>
         )
       }

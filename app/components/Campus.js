@@ -50,9 +50,8 @@ export default class Campus extends Component {
        
         return(
             <div>
-                <h1>this is ONE CAMPUS</h1>
-                <h3>this is: {campus.name}</h3>
-                <div>
+                <h1>CAMPUS: {campus.name}</h1>
+                <div id="campus-btn-form">
                     <button onClick={this.onDelete.bind(this)}>delete</button>
                     <button onClick={this.onEditClick.bind(this)}>edit</button>
                     {this.state.isEdit? 
@@ -60,7 +59,7 @@ export default class Campus extends Component {
                     }           
                 </div>
                 <h3>Students:</h3>
-                <div>
+                <div className="student-container" addstudentbtn>
                     {students.map(student => {
                         return (
                             <Link to={`/students/${student.id}`} key={student.id}>

@@ -9,7 +9,7 @@ export default class AddStudent extends Component{
             firstName: "",
             lastName: "",
             email: "",
-            campusid: "",
+            campusid: "1",
             campuses: [],
             createdStudent: {}
         }
@@ -52,7 +52,8 @@ export default class AddStudent extends Component{
     }  
     render() {
         return (
-            <form onSubmit={this.handleSubmit} onChange={this.handleInputChange}>
+            <form className="student-container" onSubmit={this.handleSubmit} onChange={this.handleInputChange}>
+                <h3>Add A Student</h3>
                 <label>
                     First Name:
                     </label>
@@ -84,6 +85,9 @@ export default class AddStudent extends Component{
                     Select A Campus:
                 </label>
                     <select name="campusid">
+                    {/* <option selected="true" disabled="disabled">
+                        
+                    </option> */}
                         {/* HOW DO I SET ONE DEFAULT VALUE OUT OF ALL FOUR CAMPUSES?? */}
                         {this.state.campuses.length && this.state.campuses.map(campus => {
                                 return (

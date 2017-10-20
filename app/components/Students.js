@@ -20,8 +20,9 @@ export default class Students extends Component{
         console.log("students: ", this.state.students)
         const students = this.state.students;
         return (
-            <div>
-                <h1>Students</h1>
+            <div className="student-container">
+                <h1>Meet Our Students</h1>
+                <button id="addstudentbtn"><Link to={`/addstudent`}>Add Student</Link></button>
                 <div>
                     {
                         students.map(student=>{

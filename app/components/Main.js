@@ -20,7 +20,7 @@ export default class Main extends Component {
                     <div>
                         <Nav />
                     </div>
-                    <div>
+                    <div id="main-container">
                         <Switch>
                             <Route exact path="/campuses" component={Campuses} />
                             <Route path="/campuses/:campusid" component={Campus} />

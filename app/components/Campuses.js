@@ -18,21 +18,35 @@ export default class Campuses extends Component {
     //onsubmit
     render(){
         return (
-            <div>
-                <h1>WELCOME CADET</h1>
-                <h3>Campuses</h3>
-                <div>
+            <div id="main-container">
+                <h1>Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript</h1>
+                <h3>Our Campuses</h3>
+                <div id="campus-container">
                     {
                         this.state.campuses.map(campus=>{
+
+                            var sectionStyle = {
+                                backgroundImage: "url(" + campus.image + ")",
+                                backgroundSize: "contain",
+                                backgroundColor: "rgba(248, 247, 216, 0.7)",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "100%"
+                            };
+
                             return (
-                                <div key={campus.id}>
+                                <div key={campus.id} className="campus-div" style={sectionStyle}>
                                     <Link to={`/campuses/${campus.id}`} >
-                                        <div>{campus.name}</div>
+                                        <div className="campus-name-div">
+                                            {campus.name}
+                                        </div>
                                     </Link>
                                 </div>
                             )
                         })
                     }
+                </div>
+                <div id="campus-btn-div">
+                    <button id="campus-btn"><Link to={`/addcampus/`}>Add Campus</Link></button>
                 </div>
             </div>
         )
