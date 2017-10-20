@@ -27,11 +27,10 @@ export default class Students extends Component{
                         students.map(student=>{
                             console.log('one student',student)
                             return (
-                                <div>
-                                    <Link to={`/students/${student.id}`} key={student.id}>
+                                <div key={student.id}>
+                                    <Link to={`/students/${student.id}`} >
                                         <div>{student.fullname}</div>
                                     </Link>
-                                    
                                 </div>
                                 
                             )

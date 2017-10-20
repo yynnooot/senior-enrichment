@@ -46,7 +46,6 @@ export default class EditStudent extends Component{
         })
         .then(res=>res.data)
         .then(student => {
-
             return this.props.setStudent(student)
         })
     }
@@ -95,7 +94,6 @@ export default class EditStudent extends Component{
                                     </option>
                             );
                          })}
-                         
                   </select>
                <br/>
                 <input type="submit" name="submit"/>

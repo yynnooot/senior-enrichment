@@ -33,6 +33,17 @@ export default class Student extends Component{
             isEdit: false
         })
     }
+    onDelete(){ 
+        if (confirm("Are you sure you want to DELETE this Student?") == true) {
+            const studentid = this.props.match.params.studentid;
+            axios.delete(`/api/students/${studentid}`)
+             if(confirm("Campus has been deleted")){
+                this.props.history.push(`/students/`);
+             }
+        } else {
+            return
+        }
+    }
    
     render(){
         const student = this.state.student;
@@ -49,7 +60,7 @@ export default class Student extends Component{
                         <h3>Campus: {campus.name}</h3>
                     </Link>
                     
-                    <button id="delete-student">delete</button>
+                    <button id="delete-student" onClick={this.onDelete.bind(this)}>delete</button>
                 </div>
                 <div>
                     <button onClick={this.onEditClick.bind(this)}>edit</button>

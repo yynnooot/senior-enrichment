@@ -17,19 +17,22 @@ export default class Campuses extends Component {
     }
     //onsubmit
     render(){
-        console.log('***asdf**',this.state.campuses)
         return (
             <div>
                 <h1>WELCOME CADET</h1>
-                <h3>campuses</h3>
+                <h3>Campuses</h3>
                 <div>
-                    {this.state.campuses.map(campus=>{
-                        return (
-                            <Link to={`/campuses/${campus.id}`} key={campus.id}>
-                                <div>{campus.name}</div>
-                            </Link>
-                        )
-                    })}
+                    {
+                        this.state.campuses.map(campus=>{
+                            return (
+                                <div key={campus.id}>
+                                    <Link to={`/campuses/${campus.id}`} >
+                                        <div>{campus.name}</div>
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         )
