@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default class Campuses extends Component {
-    constructor(){
-        super();
-        this.state = {
-            campuses : []
-        }
+import { connect } from 'react-redux';
+import { fetchCampuses } from '../reducers/reducer_campuses';
+
+class Campuses extends Component {
+    constructor(props){
+        super(props);
     }
 
     componentDidMount(){
-        axios.get('/api/campuses')
-            .then(res => res.data)
-            .then(campuses => this.setState({campuses: campuses}))
+        console.log('campuses did mount',this.props)
+        this.props.getCampuses();
     }
+
     //onsubmit
     render(){
+        console.log('**',this.props)
+        const { campuses } = this.props
         return (
             <div id="main-container">
                 <h1>Welcome to the Margaret Hamilton Interplanetary Academy of JavaScript</h1>
                 <h3>Our Campuses</h3>
                 <div id="campus-container">
-                    {
-                        this.state.campuses.map(campus=>{
+                    {campuses.length && campuses.map(campus=>{
 
                             var sectionStyle = {
                                 backgroundImage: "url(" + campus.image + ")",
@@ -52,3 +53,19 @@ export default class Campuses extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        campuses: state.campuses
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        getCampuses(){
+            dispatch(fetchCampuses());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Campuses);

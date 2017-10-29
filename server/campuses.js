@@ -6,7 +6,7 @@ const { Campus, Student } = require('../db/models');
 
 router.get('/', function (req, res, next) {
     Campus.findAll({})
-      .then(student => res.json(student))
+      .then(campuses => res.json(campuses))
       .catch(next);
   });
  router.get('/:id', (req,res,next) => {

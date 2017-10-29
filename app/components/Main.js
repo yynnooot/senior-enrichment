@@ -12,8 +12,8 @@ import AddStudent from './AddStudent.js';
 
 
 export default class Main extends Component {
-  
-    render(){
+
+    render() {
         return (
             <Router>
                 <div>
